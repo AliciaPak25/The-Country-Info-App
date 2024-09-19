@@ -1,3 +1,4 @@
+require('dotenv').config();
 const axios = require('axios');
 
 const DATA_NAGER_API_BASE_URL = process.env.DATA_NAGER_API_BASE_URL;
@@ -24,38 +25,41 @@ const getAvailableCountries = async (req, res) => {
   }
 };
 
-// Get Country Info
 const getCountryInfo = async (req, res) => {
   try {
-    // Extract countryCode from request parameters
     const { countryCode } = req.params;
 
-    // Get specific country information from Date Nager API
-    const response = await axios.get(
-      `${DATA_NAGER_API_BASE_URL}/CountryInfo/${countryCode}`
+    // Check the value of DATA_NAGER_API_BASE_URL
+    console.log(
+      'DATA_NAGER_API_BASE_URL:',
+      process.env.DATA_NAGER_API_BASE_URL
     );
+    console.log(
+      'COUNTRIES_NOW_API_BASE_URL:',
+      process.env.COUNTRIES_NOW_API_BASE_URL
+    );
+
+    // Make sure you use the environment variables correctly here:
+    const response = await axios.get(
+      `${process.env.DATA_NAGER_API_BASE_URL}/CountryInfo/${countryCode}`
+    );
+
     const countryInfo = response.data;
 
-    // Fetch the list of available countries
     const availableCountriesResponse = await axios.get(
-      `${DATA_NAGER_API_BASE_URL}/AvailableCountries`
+      `${process.env.DATA_NAGER_API_BASE_URL}/AvailableCountries`
     );
+
     const availableCountries = availableCountriesResponse.data;
 
-    // Map border country codes to country names
     const borderCountries = countryInfo.borders.map((code) => {
       const country = availableCountries.find((c) => c.countryCode === code);
       return country ? country.name : code;
     });
 
-    // Fetch Population Data from CountriesNow API
-    const countryName = countryInfo.commonName;
-
     const populationResponse = await axios.post(
-      `${COUNTRIES_NOW_API_BASE_URL}/countries/population`,
-      {
-        country: countryName,
-      }
+      `${process.env.COUNTRIES_NOW_API_BASE_URL}/countries/population`,
+      { country: countryInfo.commonName }
     );
 
     let populationData = [];
@@ -66,15 +70,12 @@ const getCountryInfo = async (req, res) => {
     ) {
       populationData = populationResponse.data.data.populationCounts;
     } else {
-      console.warn(`Population data not found for ${countryName}`);
+      console.warn(`Population data not found for ${countryInfo.commonName}`);
     }
 
-    // Fetch Flag URL from CountriesNow API
     const flagResponse = await axios.post(
-      `${COUNTRIES_NOW_API_BASE_URL}/countries/flag/images`,
-      {
-        country: countryName,
-      }
+      `${process.env.COUNTRIES_NOW_API_BASE_URL}/countries/flag/images`,
+      { country: countryInfo.commonName }
     );
 
     let flagURL = '';
@@ -85,24 +86,19 @@ const getCountryInfo = async (req, res) => {
     ) {
       flagURL = flagResponse.data.data.flag;
     } else {
-      console.warn(`Flag URL not found for ${countryName}`);
+      console.warn(`Flag URL not found for ${countryInfo.commonName}`);
     }
 
-    // Send the response to the frontend
     res.status(200).json({
       status: 'success',
-      results: {
-        listOfBorderCountries: borderCountries.length,
-        populationData: populationData.length,
-      },
       data: {
         countryCode: countryInfo.countryCode,
         commonName: countryInfo.commonName,
         officialName: countryInfo.officialName,
         region: countryInfo.region,
         borders: borderCountries,
-        populationData: populationData,
-        flagURL: flagURL,
+        populationData,
+        flagURL,
       },
     });
   } catch (error) {
