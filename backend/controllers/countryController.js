@@ -25,29 +25,20 @@ const getAvailableCountries = async (req, res) => {
   }
 };
 
+// Get Country Info
 const getCountryInfo = async (req, res) => {
   try {
     const { countryCode } = req.params;
 
-    // Check the value of DATA_NAGER_API_BASE_URL
-    console.log(
-      'DATA_NAGER_API_BASE_URL:',
-      process.env.DATA_NAGER_API_BASE_URL
-    );
-    console.log(
-      'COUNTRIES_NOW_API_BASE_URL:',
-      process.env.COUNTRIES_NOW_API_BASE_URL
-    );
-
     // Make sure you use the environment variables correctly here:
     const response = await axios.get(
-      `${process.env.DATA_NAGER_API_BASE_URL}/CountryInfo/${countryCode}`
+      `${DATA_NAGER_API_BASE_URL}/CountryInfo/${countryCode}`
     );
 
     const countryInfo = response.data;
 
     const availableCountriesResponse = await axios.get(
-      `${process.env.DATA_NAGER_API_BASE_URL}/AvailableCountries`
+      `${DATA_NAGER_API_BASE_URL}/AvailableCountries`
     );
 
     const availableCountries = availableCountriesResponse.data;
@@ -58,7 +49,7 @@ const getCountryInfo = async (req, res) => {
     });
 
     const populationResponse = await axios.post(
-      `${process.env.COUNTRIES_NOW_API_BASE_URL}/countries/population`,
+      `${COUNTRIES_NOW_API_BASE_URL}/countries/population`,
       { country: countryInfo.commonName }
     );
 
@@ -74,7 +65,7 @@ const getCountryInfo = async (req, res) => {
     }
 
     const flagResponse = await axios.post(
-      `${process.env.COUNTRIES_NOW_API_BASE_URL}/countries/flag/images`,
+      `${COUNTRIES_NOW_API_BASE_URL}/countries/flag/images`,
       { country: countryInfo.commonName }
     );
 
@@ -91,6 +82,10 @@ const getCountryInfo = async (req, res) => {
 
     res.status(200).json({
       status: 'success',
+      results: {
+        bordersCount: borderCountries.length,
+        populationsCount: populationData.length,
+      },
       data: {
         countryCode: countryInfo.countryCode,
         commonName: countryInfo.commonName,
