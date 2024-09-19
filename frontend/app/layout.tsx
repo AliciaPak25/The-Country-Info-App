@@ -1,11 +1,12 @@
-// frontend/app/layout.tsx
-
 import './globals.css';
 import { ReactNode } from 'react';
 
 export const metadata = {
   title: 'Country Info App',
   description: 'Information about countries',
+  icons: {
+    icon: './countries.png',
+  },
 };
 
 const RootLayout = ({ children }: { children: ReactNode }) => {

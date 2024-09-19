@@ -1,5 +1,3 @@
-// frontend/types/apiResponse.ts
-
 export interface Country {
   countryCode: string;
   name: string;

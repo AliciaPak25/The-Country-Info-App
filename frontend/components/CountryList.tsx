@@ -1,10 +1,8 @@
-// frontend/components/CountryList.tsx
 'use client';
 
 import { useEffect, useState } from 'react';
-import Link from 'next/link';
-import { Country, ApiResponse } from '../types/apiResponse'; // frontend/components/CountryList.tsx
-import CountryCard from './CountryCard'; // Importing the component
+import { Country, ApiResponse } from '../types/apiResponse';
+import CountryCard from './CountryCard';
 
 const CountryList: React.FC = () => {
   const [countries, setCountries] = useState<Country[]>([]);
@@ -43,24 +41,51 @@ const CountryList: React.FC = () => {
     fetchCountries();
   }, []);
 
+  // Spinner while loading
   if (loading) {
-    return <p className="text-center">Loading countries...</p>;
+    return (
+      <div className="flex justify-center items-center min-h-screen">
+        <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-teal-400 border-solid"></div>
+      </div>
+    );
   }
 
+  // Error message
   if (error) {
-    return <p className="text-center text-red-500">Error: {error}</p>;
+    return (
+      <div className="flex justify-center items-center min-h-screen">
+        <div className="text-center">
+          <p className="text-red-500 text-xl mb-4">
+            Oops! Something went wrong.
+          </p>
+          <p className="text-gray-400">{error}</p>
+        </div>
+      </div>
+    );
   }
 
+  // No countries available message
   if (!Array.isArray(countries) || countries.length === 0) {
-    return <p className="text-center">No countries available.</p>;
+    return (
+      <div className="flex justify-center items-center min-h-screen">
+        <div className="text-center">
+          <p className="text-teal-400 text-2xl font-semibold mb-2">
+            No countries available
+          </p>
+          <p className="text-gray-400">Please try again later.</p>
+        </div>
+      </div>
+    );
   }
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-2xl font-bold mb-4">Available Countries</h1>
-      <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      <h1 className="text-2xl font-semibold text-gray-200 mb-6">
+        List of Available Countries
+      </h1>
+      <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {countries.map((country) => (
-          <CountryCard key={country.countryCode} country={country} /> // Using typed props
+          <CountryCard key={country.countryCode} country={country} />
         ))}
       </ul>
     </div>
