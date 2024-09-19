@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import { useParams } from 'next/navigation';
-import Link from 'next/link';
-import { CountryInfoResponse } from '../../../types/apiResponse';
-import { Chart } from 'react-chartjs-2';
+import { useEffect, useState } from "react";
+import { useParams } from "next/navigation";
+import Link from "next/link";
+import { CountryInfoResponse } from "../../types/apiResponse";
+import { Chart } from "react-chartjs-2";
 
 import {
   Chart as ChartJS,
@@ -15,7 +15,7 @@ import {
   Title,
   Tooltip,
   Legend,
-} from 'chart.js';
+} from "chart.js";
 
 ChartJS.register(
   CategoryScale,
@@ -54,14 +54,14 @@ const CountryInfo: React.FC<CountryInfoProps> = () => {
         const data: { status: string; data: CountryInfoResponse } =
           await response.json();
 
-        if (data.status !== 'success') {
-          throw new Error('Backend reported failure in fetching country info.');
+        if (data.status !== "success") {
+          throw new Error("Backend reported failure in fetching country info.");
         }
 
         setCountryInfo(data.data);
       } catch (err: any) {
-        console.error('Error fetching country info:', err);
-        setError(err.message || 'An unexpected error occurred');
+        console.error("Error fetching country info:", err);
+        setError(err.message || "An unexpected error occurred");
       } finally {
         setLoading(false);
       }
@@ -108,12 +108,12 @@ const CountryInfo: React.FC<CountryInfoProps> = () => {
     labels: years,
     datasets: [
       {
-        label: 'Population',
+        label: "Population",
         data: populations,
-        borderColor: 'rgba(16, 185, 129, 1)',
-        backgroundColor: 'rgba(16, 185, 129, 0.5)',
-        pointBackgroundColor: 'rgba(16, 185, 129, 1)',
-        pointBorderColor: 'rgba(255, 255, 255, 1)',
+        borderColor: "rgba(16, 185, 129, 1)",
+        backgroundColor: "rgba(16, 185, 129, 0.5)",
+        pointBackgroundColor: "rgba(16, 185, 129, 1)",
+        pointBorderColor: "rgba(255, 255, 255, 1)",
       },
     ],
   };
@@ -123,24 +123,24 @@ const CountryInfo: React.FC<CountryInfoProps> = () => {
     plugins: {
       legend: {
         labels: {
-          color: 'rgba(16, 185, 129, 1)',
+          color: "rgba(16, 185, 129, 1)",
         },
       },
       title: {
         display: true,
         text: `Population Growth of ${countryInfo.commonName}`,
-        color: 'rgba(255, 255, 255, 1)',
+        color: "rgba(255, 255, 255, 1)",
       },
     },
     scales: {
       x: {
         ticks: {
-          color: 'rgba(209, 213, 219, 1)',
+          color: "rgba(209, 213, 219, 1)",
         },
       },
       y: {
         ticks: {
-          color: 'rgba(209, 213, 219, 1)',
+          color: "rgba(209, 213, 219, 1)",
         },
       },
     },
@@ -151,6 +151,7 @@ const CountryInfo: React.FC<CountryInfoProps> = () => {
       {/* Country Name and Flag */}
       <div className="flex items-center mb-6">
         {countryInfo.flagURL && (
+          // eslint-disable-next-line @next/next/no-img-element
           <img
             src={countryInfo.flagURL}
             alt={`${countryInfo.commonName} flag`}

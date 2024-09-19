@@ -1,11 +1,11 @@
-import './globals.css';
-import { ReactNode } from 'react';
+import "./globals.css";
+import { ReactNode } from "react";
 
 export const metadata = {
-  title: 'Country Info App',
-  description: 'Information about countries',
+  title: "Country Info App",
+  description: "Information about countries",
   icons: {
-    icon: './countries.png',
+    icon: "./countries.png",
   },
 };
 

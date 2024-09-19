@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { Country } from '../types/apiResponse';
+import Link from "next/link";
+import { Country } from "@/app/types/apiResponse";
 
 interface CountryCardProps {
   country: Country;
@@ -15,6 +15,7 @@ const CountryCard: React.FC<CountryCardProps> = ({ country }) => {
         href={`/country/${country.countryCode}`}
         className="flex items-center space-x-4 cursor-pointer"
       >
+        {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={`https://flagcdn.com/48x36/${country.countryCode.toLowerCase()}.png`}
           alt={`${country.name} flag`}

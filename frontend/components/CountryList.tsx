@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import { Country, ApiResponse } from '../types/apiResponse';
-import CountryCard from './CountryCard';
+import { useEffect, useState } from "react";
+import { Country, ApiResponse } from "@/app/types/apiResponse";
+import CountryCard from "./CountryCard";
 
 const CountryList: React.FC = () => {
   const [countries, setCountries] = useState<Country[]>([]);
@@ -15,7 +15,7 @@ const CountryList: React.FC = () => {
         const response = await fetch(
           `${process.env.NEXT_PUBLIC_BACKEND_API_BASE_URL}/AvailableCountries`,
         );
-        console.log('Response Status:', response.status);
+        console.log("Response Status:", response.status);
 
         if (!response.ok) {
           throw new Error(
@@ -25,14 +25,14 @@ const CountryList: React.FC = () => {
 
         const data: ApiResponse = await response.json();
 
-        if (data.status !== 'success') {
-          throw new Error('Backend reported failure in fetching countries.');
+        if (data.status !== "success") {
+          throw new Error("Backend reported failure in fetching countries.");
         }
 
         setCountries(data.data.availableCountries);
       } catch (err: any) {
-        console.error('Error fetching countries:', err);
-        setError(err.message || 'An unexpected error occurred');
+        console.error("Error fetching countries:", err);
+        setError(err.message || "An unexpected error occurred");
       } finally {
         setLoading(false);
       }

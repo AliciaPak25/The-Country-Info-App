@@ -1,4 +1,7 @@
+import { ReactNode } from "react";
+
 export interface Country {
+  dialingCode: ReactNode;
   countryCode: string;
   name: string;
 }
@@ -22,6 +25,7 @@ export interface CountryInfoResponse {
   officialName: string;
   region: string;
   borders: {
+    commonName: ReactNode;
     countryCode: string;
     name: string;
   }[];
