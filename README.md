@@ -24,18 +24,18 @@ This project is a Full-Stack JavaScript application that provides country inform
 
 ### 1. Clone the repository
 
-git clone https://github.com/AliciaPak25/The-Country-Info-App.git
-cd The-Country-Info-App
+- git clone https://github.com/AliciaPak25/The-Country-Info-App.git
+- cd The-Country-Info-App
 
-### 2. Install dependencias
+### 2. Install dependencies
 
-- **Backend**:  
-cd backend
-npm install
+- **Backend**: Node.js with Express.js 
+- cd backend
+- npm install
 
 - **Frontend**: Next.js
-cd frontend
-npm install
+- cd frontend
+- npm install
 
 ### 3. Environment Variables Setup
 You need to create .env files in both the backend and frontend folders. There are .env.example files provided that list all the environment variable names used in this project. You need to complete the values for these variables.
@@ -53,11 +53,11 @@ NEXT_PUBLIC_BACKEND_API_BASE_URL= (Backend API base URL for this project: http:/
 
 ### 4. Running the Application on Dev Mode
 Start Backend
-cd backend
-npm run dev
+- cd backend
+- npm run dev
 
 Start Frontend
-cd frontend
-npm run dev
+- cd frontend
+- npm run dev
 
 Make sure to run both frontend and backend simultaneously in separate terminals in order to view or test the application.
