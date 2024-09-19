@@ -1,11 +1,14 @@
 const axios = require('axios');
 
+const DATA_NAGER_API_BASE_URL = process.env.DATA_NAGER_API_BASE_URL;
+const COUNTRIES_NOW_API_BASE_URL = process.env.COUNTRIES_NOW_BASE_URL;
+
 // Get available countries from Date Nager API
 const getAvailableCountries = async (req, res) => {
   try {
     // Get data from Date Nager API
     const response = await axios.get(
-      'https://date.nager.at/api/v3/AvailableCountries'
+      `${DATA_NAGER_API_BASE_URL}/AvailableCountries`
     );
 
     // Send the data to the frontend
@@ -29,13 +32,13 @@ const getCountryInfo = async (req, res) => {
 
     // Get specific country information from Date Nager API
     const response = await axios.get(
-      `https://date.nager.at/api/v3/CountryInfo/${countryCode}`
+      `${DATA_NAGER_API_BASE_URL}/CountryInfo/${countryCode}`
     );
     const countryInfo = response.data;
 
     // Fetch the list of available countries
     const availableCountriesResponse = await axios.get(
-      'https://date.nager.at/api/v3/AvailableCountries'
+      `${DATA_NAGER_API_BASE_URL}/AvailableCountries`
     );
     const availableCountries = availableCountriesResponse.data;
 
@@ -49,7 +52,7 @@ const getCountryInfo = async (req, res) => {
     const countryName = countryInfo.commonName;
 
     const populationResponse = await axios.post(
-      'https://countriesnow.space/api/v0.1/countries/population',
+      `${COUNTRIES_NOW_API_BASE_URL}/countries/population`,
       {
         country: countryName,
       }
@@ -68,7 +71,7 @@ const getCountryInfo = async (req, res) => {
 
     // Fetch Flag URL from CountriesNow API
     const flagResponse = await axios.post(
-      'https://countriesnow.space/api/v0.1/countries/flag/images',
+      `${COUNTRIES_NOW_API_BASE_URL}/countries/flag/images`,
       {
         country: countryName,
       }
