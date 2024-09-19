@@ -1,0 +1,27 @@
+{
+  "name": "country-info",
+  "version": "1.0.0",
+  "description": "Backend in Node.js with Express.js to get country info",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "lint": "eslint .",
+    "format": "prettier --write ."
+  },
+  "author": "Alicia Pak",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.7.7",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0"
+  },
+  "devDependencies": {
+    "eslint": "^9.10.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "nodemon": "^3.1.5",
+    "prettier": "^3.3.3"
+  }
+}
