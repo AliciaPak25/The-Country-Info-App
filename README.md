@@ -2,6 +2,9 @@
 
 This project is a Full-Stack JavaScript application that provides country information, including border countries, population data, and flag images. It consists of a backend API built with Node.js and Express.js and a frontend built with Next.js.
 
+## Project Goal
+This project was created as part of a test assessment for a selection process. Its purpose is to demonstrate Full-Stack JavaScript development skills, focusing on API integration, backend development with Node.js (Express) and frontend development with React (Next.js). to showcase the ability to build responsive, data-driven applications.
+
 ## Features
 
 - **Country List Page**: Displays a list of countries fetched from the backend.
@@ -61,3 +64,16 @@ Start Frontend
 - npm run dev
 
 Make sure to run both frontend and backend simultaneously in separate terminals in order to view or test the application.
+
+### Testing Comments
+Since I focused on completing the core functionalities and the UI within the given timeframe, this application does not include automated tests. However, it was manually tested using Postman for the backend, and the frontend was tested through the browser, and you can do the same by following these steps:
+
+**1.	Backend Testing:**
+o	Use Postman to test the API endpoints.
+o	Test the /api/v1/AvailableCountries endpoint to fetch the list of available countries.
+o	Test the /api/v1/CountryInfo/:countryCode endpoint to retrieve specific country details.
+
+**2.	Frontend Testing:**
+o	Start the application, navigate to the country list page, and interact with the UI by clicking on a country to view its details and population chart.
+
+Thank you for taking the time to check out this project! If you have any feedback or suggestions, feel free to reach out.
