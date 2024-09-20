@@ -1,4 +1,4 @@
-### Frontend - Country Info App
+### Frontend - The Country Info App
 
 ### Tech Stack
 React.js (Next.js)
