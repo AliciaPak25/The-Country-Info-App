@@ -24,7 +24,7 @@ Install Dependencies:
 
 **Run the Server:**
 - npm run dev
-- 
+
 **API Endpoints**
 - GET /api/v1/AvailableCountries: -> Retrieves a list of available countries.
 - GET /api/v1/CountryInfo/:countryCode -> Fetches specific country information, including border countries, population, and flag.
