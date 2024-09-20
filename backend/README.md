@@ -1,4 +1,4 @@
-## Backend - Country Info App
+## Backend - The Country Info App
 
 **Tech Stack**
 Node.js with Express.js
