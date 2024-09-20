@@ -76,4 +76,7 @@ Since I focused on completing the core functionalities and the UI within the giv
 **2.	Frontend Testing:**
 - Start the application, navigate to the country list page, and interact with the UI by clicking on a country to view its details and population chart.
 
+### Additional Documentation
+You can also find separate README.md files for both the frontend and backend in their respective folders. These files contain specific instructions for setting up, running, and understanding the details of each part of the project.
+
 Thank you for taking the time to check out this project! If you have any feedback or suggestions, feel free to reach out.
