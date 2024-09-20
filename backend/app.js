@@ -16,7 +16,7 @@ app.use(express.json());
 app.use(
   cors({
     origin: frontend_base_url, // Frontend URL
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    methods: ['GET'],
     credentials: true,
   })
 );

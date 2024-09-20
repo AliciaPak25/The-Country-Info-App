@@ -2,7 +2,7 @@ require('dotenv').config();
 const axios = require('axios');
 
 const DATA_NAGER_API_BASE_URL = process.env.DATA_NAGER_API_BASE_URL;
-const COUNTRIES_NOW_API_BASE_URL = process.env.COUNTRIES_NOW_BASE_URL;
+const COUNTRIES_NOW_API_BASE_URL = process.env.COUNTRIES_NOW_API_BASE_URL;
 
 // Get available countries from Date Nager API
 const getAvailableCountries = async (req, res) => {
