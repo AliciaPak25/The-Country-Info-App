@@ -1,8 +1,7 @@
 ### Frontend - Country Info App
 
 ### Tech Stack
-React.js
-Next.js
+React.js (Next.js)
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
@@ -14,6 +13,12 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 - tailwindcss: For styling and responsive design.
 - typescript: For static type checking and improved developer experience.
 
+### Set Up Environment Variables:
+
+1. Create a .env.local file based on the provided .env.local.example.
+2. Define the following variable:
+- NEXT_PUBLIC_BACKEND_API_BASE_URL
+  
 ## Getting Started: Running the Frontend
 - Install Dependencies:
 - npm install
@@ -31,15 +36,6 @@ bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-### Set Up Environment Variables:
-
-1. Create a .env.local file based on the provided .env.local.example.
-2. Define the following variable:
-- NEXT_PUBLIC_BACKEND_API_BASE_URL
-
-### Run the Frontend:
-- npm run dev
   
 ### Main Components
 - Country List Page: Displays a list of countries fetched from the backend. (CountryList.tsx) 
