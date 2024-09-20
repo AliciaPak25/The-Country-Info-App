@@ -40,3 +40,10 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ### Main Components
 - Country List Page: Displays a list of countries fetched from the backend. (CountryList.tsx) 
 - Country Info Page: Shows detailed information about a selected country, including: country name and flag, border countries, and a population chart (/country/[countryCode]/page.tsx).
+
+### Scripts
+- npm run dev: Runs the app in development mode.
+- npm run build: Builds the application for production.
+- npm run start: Starts the production build.
+- npm run lint: Runs the linter to check for code quality issues.
+
