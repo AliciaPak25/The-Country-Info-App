@@ -69,11 +69,11 @@ Make sure to run both frontend and backend simultaneously in separate terminals 
 Since I focused on completing the core functionalities and the UI within the given timeframe, this application does not include automated tests. However, it was manually tested using Postman for the backend, and the frontend was tested through the browser, and you can do the same by following these steps:
 
 **1.	Backend Testing:**
-o	Use Postman to test the API endpoints.
-o	Test the /api/v1/AvailableCountries endpoint to fetch the list of available countries.
-o	Test the /api/v1/CountryInfo/:countryCode endpoint to retrieve specific country details.
+- Use Postman to test the API endpoints.
+- Test the /api/v1/AvailableCountries endpoint to fetch the list of available countries.
+- Test the /api/v1/CountryInfo/:countryCode endpoint to retrieve specific country details.
 
 **2.	Frontend Testing:**
-o	Start the application, navigate to the country list page, and interact with the UI by clicking on a country to view its details and population chart.
+- Start the application, navigate to the country list page, and interact with the UI by clicking on a country to view its details and population chart.
 
 Thank you for taking the time to check out this project! If you have any feedback or suggestions, feel free to reach out.
