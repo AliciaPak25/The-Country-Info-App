@@ -10,7 +10,7 @@ Node.js with Express.js
 - express: For building the API routes.
 
 **Running the Backend**
-Install Dependencies:
+- Install Dependencies:
 - npm install
   
 **Set Up Environment Variables:**
