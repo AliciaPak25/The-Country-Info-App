@@ -4,10 +4,10 @@
 Node.js with Express.js
 
 **Packages Used**
-axios: For making API requests.
-dotenv: For managing environment variables.
-cors: To enable Cross-Origin Resource Sharing.
-express: For building the API routes.
+- axios: For making API requests.
+- dotenv: For managing environment variables.
+- cors: To enable Cross-Origin Resource Sharing.
+- express: For building the API routes.
 
 **Running the Backend**
 Install Dependencies:
